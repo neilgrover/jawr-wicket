@@ -8,7 +8,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.jawr.extensions</groupId>
 	<artifactId>jawr-wicket-parent</artifactId>
-	<version>3.6-SNAPSHOT</version>
+	<version>3.5.2</version>
 	<packaging>pom</packaging>
 	<name>jawr wicket parent pom</name>
 	<url>http://jawr.java.net/</url>
@@ -26,7 +26,7 @@
 		<connection>scm:git:git@github.com:ic3fox/jawr-wicket.git</connection>
 		<developerConnection>scm:git:git@github.com:ic3fox/jawr-wicket.git</developerConnection>
 		<url>http://github.com/ic3fox/jawr-wicket</url>
-		<tag>HEAD</tag>
+		<tag>jawr-wicket-parent-3.5.2</tag>
 	</scm>
 	<developers>
 		<developer>
@@ -79,7 +79,7 @@
 			<dependency>
 				<groupId>net.jawr</groupId>
 				<artifactId>jawr-core</artifactId>
-				<version>3.6-SNAPSHOT</version>
+				<version>3.5.2</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
