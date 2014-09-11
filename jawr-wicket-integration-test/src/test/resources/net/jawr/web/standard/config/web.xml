@@ -59,7 +59,7 @@
 		<load-on-startup>2</load-on-startup>
 	</servlet>
 	<servlet>
-		<servlet-name>JawrImgServlet</servlet-name>
+		<servlet-name>JawrBinaryServlet</servlet-name>
 		<servlet-class>net.jawr.web.servlet.JawrServlet</servlet-class>
 		<init-param>
 			<param-name>configLocation</param-name>
@@ -67,7 +67,7 @@
 		</init-param>
 		<init-param>
 			<param-name>type</param-name>
-			<param-value>img</param-value>
+			<param-value>binary</param-value>
 		</init-param>
 		<init-param>
 			<param-name>mapping</param-name>
@@ -85,7 +85,7 @@
 		<url-pattern>/jawrCss/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>JawrImgServlet</servlet-name>
+		<servlet-name>JawrBinaryServlet</servlet-name>
 		<url-pattern>/jawrImg/*</url-pattern>
 	</servlet-mapping>
 	

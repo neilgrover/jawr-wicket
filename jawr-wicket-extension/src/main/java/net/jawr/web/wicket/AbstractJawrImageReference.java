@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.jawr.web.JawrConstant;
 import net.jawr.web.context.ThreadLocalJawrContext;
-import net.jawr.web.resource.ImageResourcesHandler;
+import net.jawr.web.resource.BinaryResourcesHandler;
 import net.jawr.web.resource.bundle.renderer.RendererFactory;
 import net.jawr.web.resource.bundle.renderer.image.ImgRenderer;
 import net.jawr.web.taglib.ImageTagUtils;
@@ -94,23 +94,23 @@ public abstract class AbstractJawrImageReference extends WebMarkupContainer {
 			ServletWebRequest servletWebRequest = (ServletWebRequest) getRequest();
 			HttpServletRequest request = servletWebRequest
 					.getContainerRequest();
-			ImageResourcesHandler imgRsHandler = (ImageResourcesHandler) WebApplication
+			BinaryResourcesHandler binaryRsHandler = (BinaryResourcesHandler) WebApplication
 					.get().getServletContext()
-					.getAttribute(JawrConstant.IMG_CONTEXT_ATTRIBUTE);
+					.getAttribute(JawrConstant.BINARY_CONTEXT_ATTRIBUTE);
 
-			if (null == imgRsHandler)
+			if (null == binaryRsHandler)
 				throw new IllegalStateException(
 						"You are using a Jawr image tag while the Jawr Image servlet has not been initialized. Initialization of Jawr Image servlet either failed or never occurred.");
 
 			final Response response = getResponse();
 
-			src = ImageTagUtils.getImageUrl(src, base64, imgRsHandler, request,
+			src = ImageTagUtils.getImageUrl(src, base64, binaryRsHandler, request,
 					getHttpServletResponseUrlEncoder(response));
 
 			Writer writer = new RedirectWriter(response);
 
 			this.renderer = RendererFactory.getImgRenderer(
-					imgRsHandler.getConfig(), isPlainImage());
+					binaryRsHandler.getConfig(), isPlainImage());
 			this.renderer.renderImage(src, attributes, writer);
 
 		} catch (IOException ex) {
