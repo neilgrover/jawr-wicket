@@ -10,30 +10,66 @@
 	<script type="text/javascript" src="/js/common.js"></script>
 	<script type="text/javascript" src="/js/bundle/msg.js"></script>
 </wicket:jawr>
+<script type="text/javascript">
+	$(function() {
+		$("#tabView").tabs();
+	});
+
+	$(function() {
+		$("#dialog-message").dialog({
+			autoOpen: false,
+			modal : true,
+			buttons : {
+				Ok : function() {
+					$(this).dialog("close");
+				}
+			}
+		});
+		$("#localeMsgButton").click(displayLocaleMsg);
+
+	});
+	
+	function displayLocaleMsg() {
+
+		$("#msgContent").text(messages.ui.msg.hello
+				.world());
+		
+		$("#dialog-message").dialog("open");
+	}
+	
+	// Initialize the theme swicther select box
+	var themeSwitcher = document.getElementById("themeSwitcher");
+	themeSwitcher.value = JAWR.skin.getCurrentSkin();
+	
+</script>
 </head>
-<body class="yui-skin-sam">
+<body>
 
 	<div class="header">&nbsp;</div>
 
-	<div class="exampleIntro">
-		<p>This page demonstrates some Jawr features.</p>
+	<div class="intro">
+		<p><span class="glyphicon"><span class="glyphicon-chevron-right" ></span><span class="glyphicon-chevron-right" ></span></span>&nbsp;&nbsp;This page demonstrates some Jawr features.</p>
 	</div>
 
-	<div id="panelMessage">
-		<div class="hd">Message</div>
-		<div class="bd">This is a Panel that was marked up in the
-			document.</div>
+	<div id="dialog-message" title="Message">
+		<p>
+			<span class="ui-icon ui-icon-info"
+				style="float: left; margin: 0 7px 50px 0;"></span>
+		</p>
+		<p>
+			<span id="msgContent"></span>
+		</p>
 	</div>
 
-	<div id="tabView" class="yui-navset">
-		<ul class="yui-nav">
+	<div id="tabView">
+		<ul>
 			<li class="selected"><a href="#tab1"><em>Internationalization</em></a></li>
 			<li><a href="#tab2"><em>Skin</em></a></li>
 			<li><a href="#tab3"><em>Generated content</em></a></li>
 			<li><a href="#tab4"><em>Generate sprite image</em></a></li>
 			<li><a href="#tab5"><em>Generate base64 image</em></a></li>
 		</ul>
-		<div class="yui-content">
+		<div>
 			<div id="tab1">
 				<p>Jawr allows you to define bundles which will change depending
 					on the user locale</p>
@@ -49,8 +85,9 @@
 					Select your skin :<select name="theme" id="themeSwitcher"
 						onchange="JAWR.skin.switchToStyle(this.value);">
 						<option value="">&nbsp;</option>
-						<option value="oceanBlue">Ocean Blue</option>
-						<option value="greyStorm">Grey Storm</option>
+						<option value="smoothness">Smoothness</option>
+						<option value="start">Start</option>
+						<option value="excite-bike">Excite Bike</option>
 					</select>
 				</form>
 			</div>
@@ -62,6 +99,8 @@
 					<wicket:jawr>
 						<img src="img:/cog.png" /> This HTML image use a generated path which force the caching for the browser.
 					</wicket:jawr>
+					This HTML image use a generated path which force the caching for
+					the browser.
 				</div>
 				<div>
 					<span class="calendar">The CSS image is retrieved from the
@@ -117,43 +156,5 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		(function() {
-
-			YAHOO.namespace("jawr.container");
-
-			function init() {
-				var tabView = new YAHOO.widget.TabView('tabView');
-
-				// Instantiate a Panel from markup
-				YAHOO.jawr.container.panelMsg = new YAHOO.widget.Panel(
-						"panelMessage", {
-							width : "320px",
-							visible : false,
-							constraintoviewport : true,
-							modal : true,
-							fixedcenter : true
-						});
-				YAHOO.jawr.container.panelMsg.render();
-
-				YAHOO.util.Event.addListener("localeMsgButton", "click",
-						displayLocaleMsg);
-
-				// Initialize the theme swicther select box
-				var themeSwitcher = document.getElementById("themeSwitcher");
-				themeSwitcher.value = JAWR.skin.getCurrentSkin();
-			}
-
-			function displayLocaleMsg() {
-
-				YAHOO.jawr.container.panelMsg.setBody(messages.ui.msg.hello
-						.world());
-				YAHOO.jawr.container.panelMsg.show();
-			}
-
-			YAHOO.util.Event.addListener(window, "load", init);
-		})();
-	</script>
-
 </body>
 </html>
