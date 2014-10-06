@@ -26,7 +26,7 @@
 		associated are retrieved directly from the classpath.</div>
 	<div style="height: 20px">
 		
-			<input type="image" src="./jawrImg/cbfc517da02d6a64a68e5fea9a5de472f1/img/appIcons/application.png" src="/img/appIcons/application.png" /> This HTML image use a generated path which force the caching for the browser.
+			<input type="image" src="/jawr-wicket-integration-test/jawrImg/cbfc517da02d6a64a68e5fea9a5de472f1/img/appIcons/application.png" src="/img/appIcons/application.png" /> This HTML image use a generated path which force the caching for the browser.
 	
 	</div>
 	<div>
@@ -42,7 +42,7 @@
 	</div>
 	<div style="height: 20px">
 		
-			<img src="./jawrImg/cb30a18063ef42b090194a7e936086960f/img/cog.png" type="image" value="temp" src="/img/cog.png" /> This input image use a generated path which force the caching for the browser.
+			<img src="/jawr-wicket-integration-test/jawrImg/cb30a18063ef42b090194a7e936086960f/img/cog.png" type="image" value="temp" src="/img/cog.png" /> This input image use a generated path which force the caching for the browser.
 		
 	</div>
 

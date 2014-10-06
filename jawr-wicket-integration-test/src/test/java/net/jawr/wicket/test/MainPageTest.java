@@ -56,7 +56,7 @@ public class MainPageTest extends AbstractPageTest {
 		assertEquals(2, scripts.size());
 		HtmlScript script = scripts.get(0);
 		assertEquals(
-				getUrlPrefix()+"/jawrJs/N1740858676/bundles/global.js",
+				getUrlPrefix()+"/jawrJs/983504194/bundles/global.js",
 				script.getSrcAttribute());
 		script = scripts.get(1);
 		assertEquals(
@@ -104,7 +104,7 @@ public class MainPageTest extends AbstractPageTest {
 		final List<?> images = getHtmlImageTags();
 		assertEquals(1, images.size());
 		final HtmlImage img = (HtmlImage) images.get(0);
-		Utils.assertGeneratedLinkEquals("./jawrImg/cb30a18063ef42b090194a7e936086960f/img/cog.png",
+		Utils.assertGeneratedLinkEquals("/jawr-wicket-integration-test/jawrImg/cb30a18063ef42b090194a7e936086960f/img/cog.png",
 				img.getSrcAttribute());
 
 	}
@@ -115,7 +115,7 @@ public class MainPageTest extends AbstractPageTest {
 		final List<HtmlImageInput> images = getHtmlImageInputTags();
 		assertEquals(1, images.size());
 		final HtmlImageInput img = images.get(0);
-		Utils.assertGeneratedLinkEquals("./jawrImg/cbfc517da02d6a64a68e5fea9a5de472f1/img/appIcons/application.png", 
+		Utils.assertGeneratedLinkEquals("/jawr-wicket-integration-test/jawrImg/cbfc517da02d6a64a68e5fea9a5de472f1/img/appIcons/application.png", 
 				img.getSrcAttribute());
 
 	}
